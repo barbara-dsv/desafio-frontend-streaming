@@ -53,3 +53,28 @@ const showMovies = (movieData) => {
     pagination(currentPage * page);
 };
 
+
+
+const input = document.querySelector('.input')
+
+input.addEventListener('keyup', async (event) => {
+    try {
+        if (event.key === 'Enter') {
+            const urlSearch = `https://tmdb-proxy.cubos-academy.workers.dev/3/search/movie?language=pt-BR&include_adult=false&query=${input.value}`
+            const result = await axios.get(urlSearch)
+
+
+            if (result.data.results.length > 0) {
+                showMovies(result.data.results);
+            } else {
+                await loadPage()
+            }
+
+            input.value = ''
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
+})
+
