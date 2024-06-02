@@ -1,15 +1,14 @@
-
-
-document.addEventListener('DOMContentLoaded', async () => {
+const loadPage = async () => {
     const url = 'https://tmdb-proxy.cubos-academy.workers.dev/3/discover/movie?language=pt-BR&include_adult=false'
     try {
         const result = await axios.get(url)
         showMovies(result.data.results)
-        console.log(result.data.results[17].title)
     } catch (error) {
         console.log(error)
     }
-})
+}
+
+document.addEventListener('DOMContentLoaded', loadPage)
 
 const showMovies = (movieData) => {
     const movies = document.querySelector('.movies')
@@ -52,4 +51,5 @@ const showMovies = (movieData) => {
     })
 
     pagination(currentPage * page);
-}
+};
+
