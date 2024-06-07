@@ -167,6 +167,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .highlight__info {
@@ -176,6 +180,7 @@ body {
   background: var(--highlight-background);
   box-shadow: var(--shadow-color);
 
+  overflow-y: scroll;
   padding: 16px;
 }
 
@@ -227,6 +232,7 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
+
 
   color: var(--highlight-description);
 }
