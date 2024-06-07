@@ -1,5 +1,7 @@
+
 const loadPage = async () => {
     const url = 'https://tmdb-proxy.cubos-academy.workers.dev/3/discover/movie?language=pt-BR&include_adult=false'
+
     try {
         const result = await axios.get(url)
         showMovies(result.data.results)
@@ -9,6 +11,10 @@ const loadPage = async () => {
 }
 
 document.addEventListener('DOMContentLoaded', loadPage)
+
+
+
+
 
 const showMovies = (movieData) => {
     const movies = document.querySelector('.movies')
@@ -37,9 +43,13 @@ const showMovies = (movieData) => {
             <img src="./assets/estrela.svg" alt="Estrela">
             </span>
             </div>`
+
+
             movies.appendChild(movieDiv)
+
         }
     }
+
     prevButton.addEventListener('click', () => {
         currentPage = (currentPage - 1 + (movieData.length / page)) % (movieData.length / page)
         pagination(currentPage * page)
@@ -51,6 +61,8 @@ const showMovies = (movieData) => {
     })
 
     pagination(currentPage * page);
+
+
 };
 
 
@@ -78,3 +90,49 @@ input.addEventListener('keyup', async (event) => {
 
 })
 
+
+
+
+
+//
+const movieOfTheDay = async () => {
+    const urlGeneral = 'https://tmdb-proxy.cubos-academy.workers.dev/3/movie/436969?language=pt-BR'
+
+    const urlVideo = 'https://tmdb-proxy.cubos-academy.workers.dev/3/movie/436969/videos?language=pt-BR'
+    try {
+        const result = await axios.get(urlGeneral)
+        const resultado = await axios.get(urlVideo)
+
+        highlight(result.data)
+        hrefVideo(resultado)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const highlight = (videoData) => {
+    const highlightVideo = document.querySelector('.highlight__video')
+    const highlightTitle = document.querySelector('.highlight__title')
+    const highlightRating = document.querySelector('.highlight__rating')
+    const highlightGenres = document.querySelector('.highlight__genres')
+    const highlightLaunch = document.querySelector('.highlight__launch')
+    const highlightDescription = document.querySelector('.highlight__description')
+
+
+    highlightVideo.style.backgroundImage = `url(${videoData.backdrop_path})`
+    highlightTitle.textContent = videoData.title
+    highlightRating.textContent = videoData.vote_average.toFixed(1)
+
+    const genreName = videoData.genres.map(genre => genre.name).join(', ')
+    highlightGenres.textContent = genreName
+
+    highlightLaunch.textContent = videoData.release_date
+    highlightDescription.textContent = videoData.overview
+}
+
+const hrefVideo = (link) => {
+    const highlightVideoLink = document.querySelector('.highlight__video-link')
+
+    highlightVideoLink.href = `https://www.youtube.com/watch?v=${link.data.results[0].key}`
+}
+document.addEventListener('DOMContentLoaded', movieOfTheDay)
