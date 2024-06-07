@@ -13,6 +13,46 @@ const loadPage = async () => {
 document.addEventListener('DOMContentLoaded', loadPage)
 
 
+const openModal = async (idFilm) => {
+    const classHidden = document.querySelector('.hidden')
+    classHidden.style.display = "flex"
+    try {
+        const urlModal = `https://tmdb-proxy.cubos-academy.workers.dev/3/movie/${idFilm}?language=pt-BR`
+        const movie = await axios.get(urlModal)
+
+        if (idFilm === movie.data.id) {
+            const modalTitle = document.querySelector('.modal__title')
+            const modalImg = document.querySelector('.modal__img')
+            const modalDescription = document.querySelector('.modal__description')
+            const modalAverage = document.querySelector('.modal__average')
+            const modalGenres = document.querySelector('.modal__genres')
+
+            modalGenres.innerHTML = ''
+
+            modalTitle.textContent = movie.data.title
+            modalImg.src = movie.data.backdrop_path
+            modalDescription.textContent = movie.data.overview
+            modalAverage.textContent = movie.data.vote_average.toFixed(1)
+
+            movie.data.genres.map(genre => {
+                const modalGenre = document.createElement('span')
+                modalGenre.classList.add('modal__genre')
+                modalGenre.textContent = genre.name
+                modalGenres.appendChild(modalGenre)
+            })
+        }
+
+        const closeModal = () => {
+            classHidden.style.display = "none"
+        }
+
+        document.querySelector('.modal__close').addEventListener('click', closeModal)
+        classHidden.addEventListener('click', closeModal)
+
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 
@@ -44,7 +84,7 @@ const showMovies = (movieData) => {
             </span>
             </div>`
 
-
+            movieDiv.addEventListener('click', () => openModal(movie.id))
             movies.appendChild(movieDiv)
 
         }
