@@ -2,8 +2,10 @@
 
 # Desafio | Front-end - Módulo 7
 
-Você acabou de ser contratado pela melhor empresa de tecnologia do mundo: a **CUBOS**.
-Sua primeira tarefa como desenvolvedor é criar uma aplicação para um serviço de streaming (pense num Netflix).
+Esse desafio tem o objetivo de criar uma aplicação para um serviço de streaming. 
+O desafio já foi entregue e corrigido. 
+
+## Descrição do desafio
 
 Seu papel é construir um website com [o seguinte design](https://www.figma.com/file/AL6hZ3Lq16Uj8mw1o4BzAK/Desafio-front-academy-2?node-id=0%3A1) que permita: (funcionalidades com \* ao lado são obrigatórias)
 
@@ -380,18 +382,6 @@ Informações do retorno da API necessárias para o preenchimento:
 - **ISSO NÃO É OBRIGATÓRIO**
   - para cada genre, você deverá criar um `<span class="modal__genre">`, colocar como texto o valor de genre.name e adicioná-lo na `<div class="modal__genres">`
 
-### Mudança de tema **NÃO OBRIGATÓRIO**
-
-Ao clicar na `<img class="btn-theme">`, caso o **tema atual** seja "light" ou "claro", o mesmo deverá ser trocado para o tema "dark" ou "escuro", após isso, você deverá modificar o tema (imagens e cores) do seu website de acordo com o Figma. Essa troca de tema, poderá ser facilitada caso seja feita por meio da troca de variáveis CSS.
-
-## Aulas úteis:
-
-- [Selecionando elementos mais facilmente | Modificando as propriedades dos elementos | Manipulando classes com a DOM | Evento de clique](https://aulas.cubos.academy/turma/92e271ed-f0b4-4cb5-ad9e-fa242d6615e9/aulas/30e19e23-fb34-4aa9-9e34-aed2759450b5)
-- [Evento de Tecla e objeto de eventos | Target e multiplos eventos](https://aulas.cubos.academy/turma/92e271ed-f0b4-4cb5-ad9e-fa242d6615e9/aulas/ae321cfd-356b-48c3-9918-2a397d4e23bb)
-- [Resumo position fixed | Criando um modal](https://aulas.cubos.academy/turma/92e271ed-f0b4-4cb5-ad9e-fa242d6615e9/aulas/58e18868-fbce-491d-be11-f0f0718514f4)
-- [Fetch e assincronismo | Populando a página com informações externas](https://aulas.cubos.academy/turma/92e271ed-f0b4-4cb5-ad9e-fa242d6615e9/aulas/2ffd1dbc-cb11-4d38-9c9f-ac89b9c5011d)
-- [Criando e adicionando elementos](https://aulas.cubos.academy/turma/92e271ed-f0b4-4cb5-ad9e-fa242d6615e9/aulas/bdd05567-3962-463a-a18e-00de3825f626)
-- [Variaveis CSS | Modificando as variaveis CSS pelo DOM e LocalStorage](https://aulas.cubos.academy/turma/92e271ed-f0b4-4cb5-ad9e-fa242d6615e9/aulas/b4c87994-bfd5-4f63-9046-0a04fd6daf53)
 
 **LEMBRE-SE**: Feito é melhor do que perfeito, mas não faça mal feito!!!
 
