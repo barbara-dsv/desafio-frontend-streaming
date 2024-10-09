@@ -5,6 +5,26 @@
 Esse desafio tem o objetivo de criar uma aplicação para um serviço de streaming. 
 O desafio já foi entregue e corrigido. 
 
+## Como Executar o Projeto
+
+1. Certifique-se de ter uma **IDE** instalada, como **Visual Studio Code**, **WebStorm**, ou qualquer outra de sua preferência.
+2. Caso esteja usando uma IDE que suporte extensões, instale a extensão **Live Server** (se disponível):
+   - No **VS Code**, por exemplo, você pode ir até a aba de **Extensões** e procurar por "Live Server" para instalar.
+   
+3. Clone o repositório do projeto ou faça o download do código.
+
+4. Abra o projeto na sua **IDE**:
+   - No menu da sua IDE, selecione a opção para abrir a pasta onde o projeto está salvo.
+
+5. Inicie o Live Server:
+   - Encontre o arquivo `index.html` (ou o arquivo principal do projeto).
+   - Utilize a opção de **Open with Live Server** (ou equivalente, dependendo da IDE que você estiver usando).
+
+6. O site será aberto automaticamente no seu navegador padrão.
+
+Agora você pode visualizar e interagir com o projeto localmente!
+
+
 ## Descrição do desafio
 
 Seu papel é construir um website com [o seguinte design](https://www.figma.com/file/AL6hZ3Lq16Uj8mw1o4BzAK/Desafio-front-academy-2?node-id=0%3A1) que permita: (funcionalidades com \* ao lado são obrigatórias)
