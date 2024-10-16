@@ -4,6 +4,7 @@ const loadPage = async () => {
 
     try {
         const result = await axios.get(url)
+      
         showMovies(result.data.results)
     } catch (error) {
         console.log(error)
@@ -131,10 +132,7 @@ input.addEventListener('keyup', async (event) => {
 })
 
 
-
-
-
-//
+ 
 const movieOfTheDay = async () => {
     const urlGeneral = 'https://tmdb-proxy.cubos-academy.workers.dev/3/movie/436969?language=pt-BR'
 
@@ -142,9 +140,10 @@ const movieOfTheDay = async () => {
     try {
         const result = await axios.get(urlGeneral)
         const resultado = await axios.get(urlVideo)
+    
 
         highlight(result.data)
-        hrefVideo(resultado)
+        hrefVideo(resultado) 
     } catch (error) {
         console.log(error)
     }
@@ -175,4 +174,61 @@ const hrefVideo = (link) => {
 
     highlightVideoLink.href = `https://www.youtube.com/watch?v=${link.data.results[0].key}`
 }
-document.addEventListener('DOMContentLoaded', movieOfTheDay)
+
+
+const changeTheme = () => {
+    const btnTheme = document.querySelector('.btn-theme'); 
+    const body = document.querySelector('body')
+    const prevButton = document.querySelector('.btn-prev');
+    const nextButton = document.querySelector('.btn-next');
+    const highlightInfo = document.querySelector('.highlight__info')
+    const highlightDescription = document.querySelector('.highlight__description')
+    const highlightGenre = document.querySelector('.highlight__genre-launch')
+    const input = document.querySelector('.input')
+    const subtitle = document.querySelector('.subtitle')
+
+        btnTheme.addEventListener('click', () => {
+            const isDarkMode = body.style.backgroundColor === 'rgb(36, 36, 36)';
+            body.style.backgroundColor = isDarkMode ? '#fff' : '#242424';
+
+            prevButton.src = isDarkMode 
+            ? './assets/seta-esquerda-preta.svg' 
+            : './assets/seta-esquerda-branca.svg';
+            nextButton.src = isDarkMode 
+            ? './assets/seta-direita-preta.svg' 
+            : './assets/seta-direita-branca.svg';
+            
+            btnTheme.src = isDarkMode 
+            ? './assets/light-mode.svg'
+            : './assets/dark-mode.svg'
+
+            highlightInfo.style.backgroundColor = isDarkMode
+            ? '#fff' 
+            : '#454545'
+            highlightDescription.style.color = isDarkMode
+            ? '#000'
+            : '#FFFFFF'
+
+            highlightGenre.style.color = isDarkMode
+            ? '#000'
+            : '#FFFFFF'
+            input.style.backgroundColor = isDarkMode
+            ? '#FFFFFF' 
+            :'#000' 
+            input.style.color = isDarkMode
+            ? '#000'
+            : '#FFFFFF'
+            subtitle.style.color =isDarkMode
+             ? '#000'
+            : '#FFFFFF'
+            console.log('trocou o tema')
+        });
+   
+};
+
+document.addEventListener('DOMContentLoaded', () =>{
+    movieOfTheDay()
+    changeTheme()
+} )
+
+
