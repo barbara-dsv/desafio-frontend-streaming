@@ -400,8 +400,12 @@ Informações do retorno da API necessárias para o preenchimento:
 - texto do `<p class="modal__description">` === overview
 - texto da `<div class="modal__average">` === vote_average
 - **ISSO NÃO É OBRIGATÓRIO**
-  - para cada genre, você deverá criar um `<span class="modal__genre">`, colocar como texto o valor de genre.name e adicioná-lo na `<div class="modal__genres">`
+- para cada genre, você deverá criar um `<span class="modal__genre">`, colocar como texto o valor de genre.name e adicioná-lo na `<div class="modal__genres">`
 
+
+### Mudança de tema 
+
+Ao clicar na `<img class="btn-theme">`, caso o **tema atual** seja "light" ou "claro", o mesmo deverá ser trocado para o tema "dark" ou "escuro", após isso, você deverá modificar o tema (imagens e cores) do seu website de acordo com o Figma. Essa troca de tema, poderá ser facilitada caso seja feita por meio da troca de variáveis CSS.
 
 **LEMBRE-SE**: Feito é melhor do que perfeito, mas não faça mal feito!!!
 
